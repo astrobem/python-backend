@@ -6,7 +6,7 @@ from models.Charts import MultiChart
 
 plt.style.use('_mpl-gallery')
 
-with open("data.txt") as file:
+with open("ascending.txt") as file:
     lines = [json.loads(line.rstrip()) for line in file]
 data = {}
 for line in lines:
