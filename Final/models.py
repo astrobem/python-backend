@@ -2,8 +2,8 @@ import typing
 
 
 class Record:
-	__keys = ["force", "temperature", "pressure", "altitude_bmp", "acceleration_x", "acceleration_y", "acceleration_z",
-	          "rotation_x", "rotation_y", "rotation_z", "time", "lat", "lng", "altitude", "rssi"]
+	__keys = ["force", "temperature", "pressure", "altitude_bmp", "acceleration_x", "acceleration_y", "acceleration_z", "time",
+	          "rotation_x", "rotation_y", "rotation_z", "lat", "lng", "altitude", "rssi"]
 
 	def __init__(self, *values):
 		if len(self.__keys) != len(values):
