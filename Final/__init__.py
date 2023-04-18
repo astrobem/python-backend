@@ -28,3 +28,4 @@ path.gen([result.lng for result in records["receiver"]][200:],
 
 test = iter(records["receiver"])
 dict(next(test))
+
