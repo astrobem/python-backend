@@ -12,4 +12,4 @@ class MyClient(discord.Client):
 intents = discord.Intents.all()
 
 client = MyClient(intents=intents)
-client.run('MTA5ODAwNjIyNTk3NjgyNzkxNA.Gm9ZIZ.MqxnXvdvSKoro5RBmxa04JeFpBKRYWQWjNNreE')
+client.run('???')
