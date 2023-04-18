@@ -4,6 +4,7 @@ from Final.models import Result
 from Final.models import Record
 
 import Final.charts.path as path
+import Final.charts.force as force
 
 records: dict = {}
 
@@ -21,10 +22,13 @@ with open("results/receiver.txt") as file:
         lines.append(line)
 
 records.update({"receiver": Result([Record(*record) for record in lines])})
-
+"""
 path.gen([result.lng for result in records["receiver"]][200:],
          [result.lat for result in records["receiver"]][200:],
          [result.altitude for result in records["receiver"]][200:])
+"""
+force.gen([result.force for result in records["receiver"]],
+          [result.time for result in records["receiver"]])
 
 test = iter(records["receiver"])
 dict(next(test))
