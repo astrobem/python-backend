@@ -26,7 +26,7 @@ class Record:
 
 
 class Result:
-    def __init__(self, records: list[Record]):
+    def __init__(self, records: typing.List[Record]):
         self.__records: list = records
         self.__current = 0
 
