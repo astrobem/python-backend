@@ -12,4 +12,4 @@ class MyClient(discord.Client):
 intents = discord.Intents.all()
 
 client = MyClient(intents=intents)
-client.run('???')
+client.run('.')

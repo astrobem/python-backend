@@ -4,7 +4,7 @@ import discord
 from discord import app_commands
 
 
-MY_GUILD = discord.Object(id=0)  # replace with your guild id
+MY_GUILD = discord.Object(id=1097971648008818798)  # replace with your guild id
 
 
 class MyClient(discord.Client):
@@ -98,7 +98,7 @@ async def report_message(interaction: discord.Interaction, message: discord.Mess
     )
 
     # Handle report by sending it into a log channel
-    log_channel = interaction.guild.get_channel(0)  # replace with your channel id
+    log_channel = interaction.guild.get_channel(1097982778219434044)  # replace with your channel id
 
     embed = discord.Embed(title='Reported Message')
     if message.content:
@@ -113,4 +113,4 @@ async def report_message(interaction: discord.Interaction, message: discord.Mess
     await log_channel.send(embed=embed, view=url_view)
 
 
-client.run('???')
+client.run('.')
