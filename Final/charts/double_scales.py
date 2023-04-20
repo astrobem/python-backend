@@ -3,14 +3,8 @@ import matplotlib.pyplot as plt
 
 def gen(x, y_one, y_two):
 
-    # Create some mock data
-    #t = np.arange(0.01, 10.0, 0.01)
-    #data1 = np.exp(t)
-    #data2 = np.sin(2 * np.pi * t)
-
     fig, ax1 = plt.subplots()
 
-    color = 'tab:red'
     ax1.set_xlabel('time (miliseconds)')
     ax1.set_ylabel('Calculated acceleration', color=color)
     ax1.plot(x, y_one, color=color)

@@ -12,6 +12,7 @@ import Final.charts.double_scales as double_scales
 import Final.charts.double_charts as double_charts
 
 import Final.specified_charts_generator.rssi as predefined_rssi
+import Final.specified_charts_generator.force_acceleration_z as predefined_force_acc
 
 mpl.rcParams['text.color'] = "#6bd4cd"
 mpl.rcParams['axes.labelcolor'] = "#6bd4cd"
@@ -39,15 +40,15 @@ with open("results/receiver.txt") as file:
 
     records.update({"receiver": Result([Record(*record) for record in lines])})
 
-with open("results/up-down.txt") as file:
+with open("results/force-start.txt") as file:
     lines = []
     for line in file:
         line = json.loads(line)
         line.append(0)
-
+        line[0] = line[0] * 0.00344
         lines.append(line)
 
-    records.update({"up-down": Result([Record(*record) for record in lines])})
+    records.update({"force-start": Result([Record(*record) for record in lines])})
 
 with open("results/alldata.txt") as file:
     lines = []
@@ -68,7 +69,7 @@ with open("results/tylkowazne.txt") as file:
         line[1] = line[1] - 10
         lines.append(line)
         line[0] = line[0] * 0.00344
-        line[0] = (line[0] / 0.022)# Acceleration as Force!
+        # line[0] = (line[0] / 0.022) # Acceleration as Force!
 
     records.update({"tylko-wazne": Result([Record(*record) for record in lines])})
 
@@ -87,6 +88,13 @@ double_charts.gen([result.time for result in records["tylko-wazne"]],
            [result.force for result in records["tylko-wazne"]],
            [result.acceleration_z for result in records["tylko-wazne"]])
 """
+"""
+predefined_rssi.gen([result.time for result in records["tylko-wazne"]],
+                    [result.force for result in records["tylko-wazne"]])
+"""
 
-predefined_rssi.gen([result.time for result in records["receiver"]],
-                    [result.rssi for result in records["receiver"]])
+predefined_force_acc.gen([result.time for result in records["receiver"]],
+                         [result.altitude_bmp for result in records["receiver"]],
+                         [result.pressure for result in records["receiver"]])
+
+
